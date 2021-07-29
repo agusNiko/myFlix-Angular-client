@@ -38,7 +38,7 @@ export class UserRegistrationService {
 }
 
   //----get movies
-  public getAllMovies(): Observable<any> {
+ getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
       {
@@ -57,7 +57,7 @@ export class UserRegistrationService {
 
 //------- get Movie by title
 
-public getMovieByTitle(title: any): Observable<any>{
+getMovieByTitle(title: any): Observable<any>{
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'movies/' + title, {headers: new HttpHeaders(
     {
@@ -67,7 +67,7 @@ public getMovieByTitle(title: any): Observable<any>{
 }
 
 //-----add movie to favorites
-  public addToFavorites(movieId: any): Observable<any> {
+ addToFavorites(movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
     console.log(movieId);
     return this.http.post(apiUrl + 'user/movies/'+ movieId,{},{
@@ -158,7 +158,6 @@ updateUsername(userName:string): Observable<any> {
     catchError(this.handleError)
   );
 }
- 
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
