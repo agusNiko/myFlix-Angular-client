@@ -42,8 +42,6 @@ export class ApiDataService {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {
       headers: new HttpHeaders(
-
-
         {
           Authorization: 'Bearer ' + token,
         })
