@@ -1,1 +1,26 @@
-<p>welcome-page works!</p>
+<style>
+    /* button {
+        margin: 10px;
+    } */
+</style>
+
+<h2>Welcome to myFlix</h2>
+
+  <div class="panel-buttons">
+    <button
+      mat-raised-button
+      (click)="openUserRegistrationDialog()"
+      style="margin: 10px;"
+      color="primary"
+    >
+      Sign Up
+    </button>
+    <button
+      mat-raised-button
+      (click)="openLoginDialog()"
+      style="margin: 10px;"
+      color="primary"
+    >
+      Login
+    </button>
+  </div>

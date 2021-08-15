@@ -272,6 +272,11 @@
     width: 1920px;
   }
 
+  button{
+    margin:10px
+  }
+
+
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link) ,
@@ -353,25 +358,7 @@
   </div>
 
   <!-- Resources -->
-  <h2>Welcome to myFlix</h2>
 
-  <div class="main-page">
-    <button
-      mat-raised-button
-      (click)="openUserRegistrationDialog()"
-      style="margin-right: 10px;"
-      color="primary"
-    >
-      Sign Up
-    </button>
-    <button
-      mat-raised-button
-      (click)="openLoginDialog()"
-      color="primary"
-    >
-      Login
-    </button>
-  </div>
 </div>
 
 
