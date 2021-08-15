@@ -5,6 +5,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ApiDataService } from '../fetch-api-data.service';
 // this is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
+//this is to navigate between the pages
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-login-form',
@@ -18,7 +21,8 @@ export class UserLoginFormComponent implements OnInit {
   constructor(
     public fetchApiData: ApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public Router: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,12 +35,14 @@ export class UserLoginFormComponent implements OnInit {
       this.dialogRef.close(); // This will close the modal on success!
       this.snackBar.open(result, 'OK', {
         duration: 2000
-      });
+      })
+
     }, (result) => {
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
     });
+    this.Router.navigate(['movies']);// Dont know if this goes here
   }
 
 }
