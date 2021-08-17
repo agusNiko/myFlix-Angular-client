@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
 
-  @Input() userData = { Username: '', Password: '' };
+  userData = { Username: '', Password: '' };
 
   constructor(
     public fetchApiData: ApiDataService,
@@ -30,8 +30,11 @@ export class UserLoginFormComponent implements OnInit {
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData.Username, this.userData.Password).subscribe((result) => {
-      // Logic for a successful user registration goes here! (To be implemented)
+      localStorage.setItem('token', result.token)
+      localStorage.setItem('user', result.user.Username)
+
       console.log('user accessed to myFlix')
+      console.log(result)
       this.dialogRef.close(); // This will close the modal on success!
       this.snackBar.open(result, 'OK', {
         duration: 2000
