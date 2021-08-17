@@ -26,5 +26,4 @@ export class WelcomePageComponent implements OnInit {
   openLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, { width: '280px' })
   }
-
 }
