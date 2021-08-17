@@ -69,7 +69,7 @@ export class ApiDataService {
   public addToFavorites(movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
     console.log(movieId);
-    return this.http.post(apiUrl + 'user/movies/' + movieId, {}, {
+    return this.http.post(apiUrl + 'users/movies/' + localStorage.getItem('user') + '/' + movieId, {}, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -85,7 +85,7 @@ export class ApiDataService {
     const token = localStorage.getItem('token');
     console.log(movieId)
     let user = localStorage.user
-    return this.http.post(apiUrl + 'users/movies/' + user + '/' + movieId + 'remove', {}, {
+    return this.http.post(apiUrl + 'users/movies/' + user + '/' + movieId + '/remove', {}, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -125,9 +125,9 @@ export class ApiDataService {
 
   //-------Get user
 
-  public getUser(userName: string): Observable<any> {
+  public getUser(userName: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + '/user/' + userName, {
+    return this.http.get(apiUrl + 'users/' + userName, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -155,16 +155,18 @@ export class ApiDataService {
 
   //------- Edit user
 
-  public updateUsername(userName: string): Observable<any> {
+  public updateUsername(newUsername: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + '/user/' + userName, {
+    const user = localStorage.getItem('user')
+    return this.http.put(apiUrl + 'users/' + user, { Username: newUsername }, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
         })
     }).pipe(
       map(this.extractResponseData),
-      catchError(this.handleError)
+      catchError(this.handleError),
+
     );
   }
 
