@@ -1,6 +1,14 @@
 
+            <button
+            (click)="goToProfile()"
+            color="primary"
+        >
+            profile
+        </button>  
+
+
 <div style="display: flex; width: 400px;">
-<mat-card *ngFor="let movie of movies; let i=index;" style="flex: 1 1 auto">
+  <mat-card *ngFor="let movie of movies; let i=index;" style="flex: 1 1 auto">
    
         <mat-card-title>{{movie.Title}}</mat-card-title>
         <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
@@ -24,7 +32,11 @@
             >
                 Synopsis
             </button>
-            <mat-icon>favorite_border</mat-icon>
+            <button
+                (click)="toFavorites(movie._id)"
+            >
+                <mat-icon>favorite_border</mat-icon>
+            </button>
         </mat-card-actions>
    
 </mat-card>

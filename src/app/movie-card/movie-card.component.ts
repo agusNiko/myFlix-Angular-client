@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiDataService } from '../fetch-api-data.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +10,10 @@ import { ApiDataService } from '../fetch-api-data.service'
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: ApiDataService) { }
+
+  constructor(
+    public fetchApiData: ApiDataService,
+    public Router: Router) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -19,6 +24,18 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+
     });
+  }
+
+  toFavorites(movieId: any): void {
+    this.fetchApiData.addToFavorites(movieId).subscribe((resp: any) => {
+      console.log(movieId + " added to favorites")
+    })
+
+  }
+
+  goToProfile(): void {
+    this.Router.navigate(['profile']);
   }
 }
