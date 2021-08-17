@@ -1,0 +1,31 @@
+<div style="display: flex; justify-content: center;">
+    <mat-card style="width: 300px;">
+            <mat-card-title>{{userData.Username}}</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+                <mat-card-subtitle>{{userData.Email}}</mat-card-subtitle>
+                <mat-card-subtitle>birthday {{userData.Birthday}}</mat-card-subtitle>
+                <mat-card-subtitle>favoriteMovies {{userData}} </mat-card-subtitle>
+            <mat-card-title>Favorite Movies: </mat-card-title>
+        <mat-card *ngFor="let favoriteMovie of favoriteMovies; let i=index;">
+            <mat-card-subtitle>{{favoriteMovie}}</mat-card-subtitle>
+            <mat-card-actions style="display: flex;">
+                <button
+                color="primary"
+                mat-raised-button
+                (click)="deleteMovie(i)"
+                >
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card-actions>
+            <button
+            mat-raised-button
+            (click)="openUserUpdateDialog()"
+            color="primary"
+            >
+            change Username
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
