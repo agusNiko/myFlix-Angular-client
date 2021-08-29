@@ -12,6 +12,7 @@ import { UpdateUserdataComponent } from '../update-userdata/update-userdata.comp
 
 
 
+
 export class UserProfileComponent implements OnInit {
   userData: any = '';
   favoriteMovies: any
@@ -46,7 +47,5 @@ export class UserProfileComponent implements OnInit {
 
   deleteMovie(i: any): void {
     this.fetchApiData.removeMovie(this.favoriteMovies[i]).subscribe((resp: any) => { this.getUser() })
-
   }
-
 }
