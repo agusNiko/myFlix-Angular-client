@@ -1,5 +1,5 @@
 
-            <button
+        <button
             (click)="goToProfile()"
             color="primary"
         >
@@ -17,27 +17,30 @@
             <button
                 mat-button
                 color="primary"
+                (click)="goToGenre()"
             >
                 Genre
             </button>
             <button
                 mat-button
                 color="primary"
+                (click)="goToDirector()"
             >
                 Director
             </button>
             <button
                 mat-button
                 color="primary"
+                (click)="goToSynopsis()"
             >
                 Synopsis
             </button>
             <button
+                mat-fab
                 (click)="toFavorites(movie._id)"
             >
-                <mat-icon>favorite_border</mat-icon>
+                <mat-icon>favorite</mat-icon>
             </button>
         </mat-card-actions>
-   
-</mat-card>
+    </mat-card>
 </div>
