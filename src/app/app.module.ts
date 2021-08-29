@@ -25,12 +25,18 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateUserdataComponent } from './update-userdata/update-userdata.component';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { SynopsisComponent } from './synopsis/synopsis.component';
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: UserProfileComponent },
+  { path: 'genre', component: GenreComponent },
+  { path: 'director', component: DirectorComponent },
+  { path: 'synopsis', component: SynopsisComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -42,7 +48,9 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     UserProfileComponent,
-    UpdateUserdataComponent
+    UpdateUserdataComponent,
+    GenreComponent,
+    DirectorComponent
   ],
   imports: [
     BrowserModule,
