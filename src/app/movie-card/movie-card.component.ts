@@ -51,4 +51,6 @@ export class MovieCardComponent {
     this.Router.navigate(['synopsis']);
   }
 
+
+
 }
