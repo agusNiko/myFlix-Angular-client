@@ -3,9 +3,8 @@
             <mat-card-title>{{userData.Username}}</mat-card-title>
                 <mat-card-subtitle></mat-card-subtitle>
                 <mat-card-subtitle>{{userData.Email}}</mat-card-subtitle>
-                <mat-card-subtitle>birthday {{userData.Birthday}}</mat-card-subtitle>
-                <mat-card-subtitle>favoriteMovies {{userData}} </mat-card-subtitle>
-            <mat-card-title>Favorite Movies: </mat-card-title>
+                <mat-card-subtitle>birthday {{userData.Birthday | date:"dd/MM/yyyy" }}</mat-card-subtitle>
+            <mat-card-title *ngIf="favoriteMovies && favoriteMovies.length">Favorite Movies: </mat-card-title>
         <mat-card *ngFor="let favoriteMovie of favoriteMovies; let i=index;">
             <mat-card-subtitle>{{favoriteMovie}}</mat-card-subtitle>
             <mat-card-actions style="display: flex;">
