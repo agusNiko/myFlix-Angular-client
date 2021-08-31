@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 // import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 export class AppComponent {
   title = 'myFlix-Angular-client';
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute) { }
 
   openMoviesDialog(): void {
     this.dialog.open(MovieCardComponent, { width: '500px' });

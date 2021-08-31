@@ -1,4 +1,7 @@
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-genre',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
-
-  constructor() { }
+  name: any = '';
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.name = this.route.snapshot.paramMap.get("name")
+    console.log(this.name)
   }
 
 }

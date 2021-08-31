@@ -34,7 +34,7 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'genre', component: GenreComponent },
+  { path: 'genre/:name', component: GenreComponent },
   { path: 'director', component: DirectorComponent },
   { path: 'synopsis', component: SynopsisComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },

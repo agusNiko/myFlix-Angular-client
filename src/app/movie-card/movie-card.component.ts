@@ -38,8 +38,8 @@ export class MovieCardComponent {
     this.Router.navigate(['profile']);
   }
 
-  goToGenre(): void {
-    this.Router.navigate(['genre']);
+  goToGenre(genre: any): void {
+    this.Router.navigate([genre]);
   }
 
   goToDirector(): void {
