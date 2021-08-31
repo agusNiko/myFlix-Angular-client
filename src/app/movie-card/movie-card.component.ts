@@ -24,7 +24,6 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
-
     });
   }
 
