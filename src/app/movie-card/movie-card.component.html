@@ -24,14 +24,14 @@
             <button
                 mat-button
                 color="primary"
-                (click)="goToDirector()"
+                (click)="goToDirector('director/' + movie.Director.Name)"
             >
                 Director
             </button>
             <button
                 mat-button
                 color="primary"
-                (click)="goToSynopsis()"
+                (click)="goToSynopsis('synopsis/' + movie._id)"
             >
                 Synopsis
             </button>

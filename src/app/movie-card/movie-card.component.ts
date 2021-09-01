@@ -42,12 +42,12 @@ export class MovieCardComponent {
     this.Router.navigate([genre]);
   }
 
-  goToDirector(): void {
-    this.Router.navigate(['director']);
+  goToDirector(director: any): void {
+    this.Router.navigate([director]);
   }
 
-  goToSynopsis(): void {
-    this.Router.navigate(['synopsis']);
+  goToSynopsis(synopsis: any): void {
+    this.Router.navigate([synopsis]);
   }
 
 

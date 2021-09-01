@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-synopsis',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./synopsis.component.scss']
 })
 export class SynopsisComponent implements OnInit {
-
-  constructor() { }
+  id: any = '';
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get("id")
+    console.log(this.id)
   }
-
 }
