@@ -50,7 +50,8 @@ const appRoutes: Routes = [
     UserProfileComponent,
     UpdateUserdataComponent,
     GenreComponent,
-    DirectorComponent
+    DirectorComponent,
+    SynopsisComponent,
   ],
   imports: [
     BrowserModule,

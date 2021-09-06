@@ -27,6 +27,16 @@ export class ApiDataService {
     );
   }
 
+  //-------movie review------/
+
+  public sendReview(reviewDetails: any): Observable<any> {
+    console.log(reviewDetails);
+    return this.http.post(apiUrl + 'movies' + reviewDetails.MovieID + '/reviews', reviewDetails).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
   //-----login
 
   public userLogin(username: any, password: any): Observable<any> {
@@ -56,6 +66,20 @@ export class ApiDataService {
   public getMovieByTitle(title: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/' + title, {
+      headers: new HttpHeaders(
+        {
+          Authorization: 'Bearer ' + token,
+        })
+    }).pipe(map(this.extractResponseData),
+      catchError(this.handleError))
+
+  }
+
+  //------- get Movie by title
+
+  public getMovieByID(_id: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiUrl + 'movie/' + 'id/' + _id, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,

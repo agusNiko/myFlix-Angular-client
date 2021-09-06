@@ -10,9 +10,6 @@ import { UpdateUserdataComponent } from '../update-userdata/update-userdata.comp
   styleUrls: ['./user-profile.component.scss']
 })
 
-
-
-
 export class UserProfileComponent implements OnInit {
   userData: any = '';
   favoriteMovies: any
@@ -23,7 +20,6 @@ export class UserProfileComponent implements OnInit {
   ) {
 
   }
-
 
   ngOnInit(): void {
     this.getUser()
