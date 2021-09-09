@@ -12,7 +12,10 @@ import { UpdateUserdataComponent } from '../update-userdata/update-userdata.comp
 
 export class UserProfileComponent implements OnInit {
   userData: any = '';
-  favoriteMovies: any
+  movies: any = [];
+  favoriteMovies: any;
+  favMoviesName: any = [];
+
   constructor(
     public fetchApiData: ApiDataService,
     public Router: Router,
@@ -29,19 +32,52 @@ export class UserProfileComponent implements OnInit {
     let userName = localStorage.getItem('user')
     this.fetchApiData.getUser(userName).subscribe((resp: any) => {
       this.userData = resp;
-
       this.favoriteMovies = resp.FavoriteMovies
       console.log(this.favoriteMovies);
+      this.getMovies()
       return this.userData;
     });
+  }
+
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.movies = resp;
+      console.log(this.movies)
+      this.getFavoriteMoviesName()
+      return this.movies
+    })
+  }
+
+  getFavoriteMoviesName(): void {
+    let favMovies: any = this.favoriteMovies
+    console.log(favMovies)
+
+    favMovies.map((X: any) => {
+      let pelis = this.movies
+      let movieId = X
+      console.log(movieId)
+      let found = pelis.find((element: any) => element._id === movieId)
+      console.log(found)
+      this.favMoviesName.push(found)
+    })
+    console.log(this.favMoviesName)
 
   }
+
 
   openUserUpdateDialog(): void {
     this.dialog.open(UpdateUserdataComponent, { width: '280px' })
   }
 
-  deleteMovie(i: any): void {
-    this.fetchApiData.removeMovie(this.favoriteMovies[i]).subscribe((resp: any) => { this.getUser() })
+  deleteMovie(id: any, index: any): void {
+    this.fetchApiData.removeMovie(id).subscribe((resp: any) => {
+      console.log(this.favMoviesName)
+      this.favMoviesName.splice(index, 1)
+      console.log(this.favMoviesName)
+    })
+  }
+
+  goBack(): void {
+    this.Router.navigate(['movies']);
   }
 }
