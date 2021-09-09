@@ -4,5 +4,13 @@
         <mat-card-title style="display: flex;">{{movie.Title}}</mat-card-title>   
         <mat-card-subtitle style="display: flex;">{{movie.Description}}</mat-card-subtitle>
         <mat-card-subtitle img style="display: flex; justify-content: center;"><img src={{movie.ImagePath}}/></mat-card-subtitle>
+        <mat-card-title style="display: flex;">Review</mat-card-title>
+        <mat-card-subtitle style="display: flex;">{{movie.Reviews[1].Comment}}</mat-card-subtitle>
+        <mat-card-title style="display: flex;">Rating</mat-card-title>
+        <mat-card-subtitle style="display: flex;">{{movie.Reviews[1].Rating}}</mat-card-subtitle>
+        <button mat-fab color="primary" aria-label="go to main page" (click)="goBack()">
+            <mat-icon>home</mat-icon>
+          </button>
     </mat-card> 
 </div>
+

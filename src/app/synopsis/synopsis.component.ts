@@ -10,9 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./synopsis.component.scss']
 })
 export class SynopsisComponent implements OnInit {
-  id: any = ''
+  id: any = '';
   movie: any = [];
-  review: {} = {};
+  review: {} = { MovieID: this.route.snapshot.paramMap.get("id"), Comment: "best movie ever", Rating: 5 };
   constructor(
     private route: ActivatedRoute,
     public fetchApiData: ApiDataService,
@@ -37,11 +37,15 @@ export class SynopsisComponent implements OnInit {
   letReview(review: {}) {
     this.fetchApiData.sendReview(review).subscribe((resp: any) => {
       this.review = resp;
-      console.log(this.movie);
+      console.log(this.movie._id);
       return this.review;
+      console.log("review works")
     });
   }
 
+  goBack(): void {
+    this.Router.navigate(['movies']);
+  }
 }
 
 
