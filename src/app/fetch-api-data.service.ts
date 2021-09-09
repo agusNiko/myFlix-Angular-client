@@ -31,9 +31,18 @@ export class ApiDataService {
 
   public sendReview(reviewDetails: any): Observable<any> {
     console.log(reviewDetails);
-    return this.http.post(apiUrl + 'movies' + reviewDetails.MovieID + '/reviews', reviewDetails).pipe(
-      catchError(this.handleError)
-    );
+    const token = localStorage.getItem('token')
+    return this.http.post(
+      apiUrl + 'movies/' + reviewDetails.MovieID + '/reviews',
+      reviewDetails,
+      {
+        headers: new HttpHeaders(
+          {
+            Authorization: 'Bearer ' + token,
+          })
+      }).pipe(
+        catchError(this.handleError)
+      );
   }
 
 
@@ -122,7 +131,7 @@ export class ApiDataService {
 
   public getDirector(director: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + '/director/' + director, {
+    return this.http.get(apiUrl + 'director/' + director, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -136,7 +145,7 @@ export class ApiDataService {
   //------Get genre
   public getGenre(genre: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + '/movies/' + genre + "/genre", {
+    return this.http.get(apiUrl + 'movies/' + genre + "/genre", {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
