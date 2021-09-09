@@ -39,13 +39,13 @@ export class UserLoginFormComponent implements OnInit {
       this.snackBar.open(result, 'OK', {
         duration: 2000
       })
-
+      this.Router.navigate(['movies']);// Dont know if this goes here
     }, (result) => {
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
     });
-    this.Router.navigate(['movies']);// Dont know if this goes here
+
   }
 
 }
