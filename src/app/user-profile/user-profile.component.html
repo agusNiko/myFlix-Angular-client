@@ -15,7 +15,7 @@
                 <mat-card-subtitle></mat-card-subtitle>
                 <mat-card-subtitle>{{userData.Email}}</mat-card-subtitle>
                 <mat-card-subtitle>birthday {{userData.Birthday | date:"dd/MM/yyyy" }}</mat-card-subtitle>
-            <!-- <mat-card-title *ngIf="favoriteMovies && favoriteMovies.length">Favorite Movies: </mat-card-title> -->
+            <mat-card-title *ngIf="favoriteMovies && favoriteMovies.length">Favorite Movies: </mat-card-title>
         <mat-card *ngFor="let favoriteMovie of favMoviesName; let i=index;" style=" margin: 20px; display: flex; flex-direction: row; justify-content: space-around;">
             <div >                
                 <mat-card-subtitle><img src={{favoriteMovie.ImagePath}} style="width: 100px;" ></mat-card-subtitle>

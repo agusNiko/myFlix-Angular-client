@@ -1,12 +1,16 @@
 <style>
-    /* button {
-        margin: 10px;
-    } */
-</style>
+  .panel-buttons{
+    display: flex;
+    justify-content: center;
 
-<h2>Welcome to myFlix</h2>
+  }
+</style>
+<h2 style="text-align: center;">Welcome to myFlix</h2>
+
 
   <div class="panel-buttons">
+
+    <div>
     <button
       mat-raised-button
       (click)="openUserRegistrationDialog()"
@@ -23,4 +27,5 @@
     >
       Login
     </button>
+    </div>
   </div>
