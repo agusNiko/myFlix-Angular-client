@@ -12,7 +12,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class SynopsisComponent implements OnInit {
   id: any = '';
   movie: any = [];
-  review: {} = { MovieID: this.route.snapshot.paramMap.get("id"), Comment: "best movie ever", Rating: 5 };
+  Reviews: any = [{ review: "bes movie ever", Rating: 5 }, { review: "bes movie ever", Rating: 5 }, { review: "bes movie ever", Rating: 5 }, { review: "bes movie ever", Rating: 5 }]
+  review: any = { MovieID: this.route.snapshot.paramMap.get("id"), Comment: "", Rating: "" };
   constructor(
     private route: ActivatedRoute,
     public fetchApiData: ApiDataService,
@@ -34,12 +35,14 @@ export class SynopsisComponent implements OnInit {
     });
   }
 
-  letReview(review: {}) {
+  letReview(review: any) {
     this.fetchApiData.sendReview(review).subscribe((resp: any) => {
       this.review = resp;
       console.log(this.movie._id);
-      return this.review;
       console.log("review works")
+      this.getMovie(this.id)
+      return this.review;
+
     });
   }
 
