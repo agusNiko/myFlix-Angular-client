@@ -28,6 +28,10 @@ export class UserProfileComponent implements OnInit {
     this.getUser()
   }
 
+
+  /**
+   * this function calls getUser to fetch userData and  adds the favoriteMovies to this.FavoriteMovies Array
+  */
   getUser(): void {
     let userName = localStorage.getItem('user')
     this.fetchApiData.getUser(userName).subscribe((resp: any) => {
@@ -39,6 +43,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+  * this function calls getMovies to fetch the movies and adds it to movies const. and calls getFavoritesMoviesName
+  */
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -48,6 +56,9 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
+  /**
+   * this function search in this.movies each favorite movie by Id and creates the favMoviesName array with names and  movie_Id
+  */
   getFavoriteMoviesName(): void {
     let favMovies: any = this.favoriteMovies
     console.log(favMovies)
@@ -61,14 +72,21 @@ export class UserProfileComponent implements OnInit {
       this.favMoviesName.push(found)
     })
     console.log(this.favMoviesName)
-
   }
 
+  /**
+   * this functions opens the update user data dialog 
+  */
 
   openUserUpdateDialog(): void {
     this.dialog.open(UpdateUserdataComponent, { width: '280px' })
   }
 
+  /**
+   *  this function calls removeMovie endpoint to remove the movie by ID
+   * @param id {string}
+   * @param index {number}
+   */
   deleteMovie(id: any, index: any): void {
     this.fetchApiData.removeMovie(id).subscribe((resp: any) => {
       console.log(this.favMoviesName)
@@ -76,6 +94,10 @@ export class UserProfileComponent implements OnInit {
       console.log(this.favMoviesName)
     })
   }
+
+  /**
+* This function navigate to movie view
+*/
 
   goBack(): void {
     this.Router.navigate(['movies']);

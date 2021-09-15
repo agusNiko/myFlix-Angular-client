@@ -21,6 +21,10 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
+  /**
+  * this function calls getMovies to fetch the movies and adds it to movies const.
+  */
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -29,6 +33,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+  * this function calls addToFavorites to add id of favorite movies to favorites
+  * @param movieId {string}
+  */
+
   toFavorites(movieId: any): void {
     this.fetchApiData.addToFavorites(movieId).subscribe((resp: any) => {
       console.log(movieId + " added to favorites")
@@ -36,22 +45,28 @@ export class MovieCardComponent {
 
   }
 
-  goToProfile(): void {
-    this.Router.navigate(['profile']);
-  }
+  /**
+  * This function navigates to genre view
+  */
 
   goToGenre(genre: any): void {
     this.Router.navigate([genre]);
   }
 
+  /**
+  * This function navigates to director view
+  */
+
   goToDirector(director: any): void {
     this.Router.navigate([director]);
   }
 
+  /**
+  * This function navigate to Synopsys view
+  */
+
   goToSynopsis(synopsis: any): void {
     this.Router.navigate([synopsis]);
   }
-
-
 
 }

@@ -26,6 +26,12 @@ export class DirectorComponent implements OnInit {
     this.getDirector(this.name);
   }
 
+  /**
+   * this function calls getDirector to fetch the director data by Id and adds it to director const.
+   * @param id {string} director id
+   * @returns director data
+   */
+
   getDirector(id: any): void {
     this.fetchApiData.getDirector(id).subscribe((resp: any) => {
       this.director = resp;
@@ -34,6 +40,9 @@ export class DirectorComponent implements OnInit {
     });
   }
 
+  /**
+   * This function navigate to movie view
+   */
   goBack(): void {
     this.Router.navigate(['movies']);
   }

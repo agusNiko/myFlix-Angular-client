@@ -24,6 +24,9 @@ export class UpdateUserdataComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * this function calls updateUsername and updates the username
+  */
   updateData(): void {
 
     this.fetchApiData.updateUsername(this.userData.NewUsername).subscribe((result) => {

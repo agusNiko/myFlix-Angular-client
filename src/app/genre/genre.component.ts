@@ -24,9 +24,13 @@ export class GenreComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get("name")
-    console.log(this.name)
     this.getGenre(this.name);
   }
+
+  /**
+   * this function calls getGenre to fetch the director data by Id and adds it to genre const.
+   * @param id {string}
+   */
 
   getGenre(id: any): void {
     this.fetchApiData.getGenre(id).subscribe((resp: any) => {
@@ -36,6 +40,10 @@ export class GenreComponent implements OnInit {
       console.log(this.genre.genre.Description)
     });
   }
+
+  /**
+ * This function navigate to movie view
+ */
 
   goBack(): void {
     this.Router.navigate(['movies']);
